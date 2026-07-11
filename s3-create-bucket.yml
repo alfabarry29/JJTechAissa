@@ -1,11 +1,12 @@
 ---
-- hosts: localhost
+- name: Create an S3 bucket
+  hosts: localhost
   connection: local
-  gather_facts: False
+  gather_facts: false
 
   tasks:
-  - name: Create an S3 bucket
-    amazon.aws.s3_bucket:
-      name: "{{ S3_Bucket_Name }}"
-      region: eu-west-1
-      state: present
+    - name: Create S3 bucket
+      amazon.aws.s3_bucket:
+        name: "{{ S3_Bucket_Name }}"
+        region: eu-west-1
+        state: present
